@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\MineExploded.png" />
+    <None Remove="Resources\PlayerOccupied.png" />
+    <None Remove="Resources\Unvisited.png" />
+    <None Remove="Resources\VisitedEmpty.png" />
+    <None Remove="Resources\VisitedMine.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
+    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+    <PackageReference Include="Unity.Container" Version="5.11.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\MineExploded.png" />
+    <Resource Include="Resources\PlayerOccupied.png" />
+    <Resource Include="Resources\Unvisited.png" />
+    <Resource Include="Resources\VisitedEmpty.png" />
+    <Resource Include="Resources\VisitedMine.png" />
+  </ItemGroup>
+
+</Project>
