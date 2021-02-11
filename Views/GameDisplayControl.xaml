@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="GameTestApp.Views.GameDisplayControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:models="clr-namespace:GameTestApp.Models"
+             xmlns:viewModels="clr-namespace:GameTestApp.ViewModels"
+             xmlns:converters="clr-namespace:GameTestApp.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance viewModels:GameViewModel}"
+             Width="800"
+             Height="800"
+             Focusable="False">
+    <UserControl.Resources>
+        <converters:PointToChessPositionConverter x:Key="PointToChessLocationConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <ItemsControl ItemsSource="{Binding GameTiles, UpdateSourceTrigger=PropertyChanged}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="models:GameTile">
+                    <Grid Height="100"
+                          Width="100">
+                        <Image Stretch="Fill"
+                               Margin="2">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding State, UpdateSourceTrigger=PropertyChanged}"
+                                                     Value="Unvisited">
+                                            <Setter Property="Source" Value="/Resources/Unvisited.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding State, UpdateSourceTrigger=PropertyChanged}"
+                                                     Value="PlayerOccupied">
+                                            <Setter Property="Source" Value="/Resources/PlayerOccupied.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding State, UpdateSourceTrigger=PropertyChanged}"
+                                                     Value="VisitedEmpty">
+                                            <Setter Property="Source" Value="/Resources/VisitedEmpty.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding State, UpdateSourceTrigger=PropertyChanged}"
+                                                     Value="MineExploded">
+                                            <Setter Property="Source" Value="/Resources/MineExploded.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding State, UpdateSourceTrigger=PropertyChanged}"
+                                                     Value="VisitedMine">
+                                            <Setter Property="Source" Value="/Resources/VisitedMine.png" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+
+                        <TextBlock Text="{Binding Location, Converter={StaticResource PointToChessLocationConverter}}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   FontSize="22"
+                                   Opacity="0.1" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
