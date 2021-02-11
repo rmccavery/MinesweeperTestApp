@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="GameTestApp.Views.ScoreStatusControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:GameTestApp.ViewModels"
+             xmlns:converters="clr-namespace:GameTestApp.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="120" d:DesignWidth="800" d:DataContext="{d:DesignInstance viewModels:GameViewModel}">
+    <UserControl.Resources>
+        <converters:PointToChessPositionConverter x:Key="PointToChessLocationConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Score -->
+        <TextBlock Grid.Column="0"
+                   Grid.Row="0"
+                   Text="Score"
+                   Foreground="LightBlue"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="14" />
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="1"
+                   Text="{Binding CurrentScore, UpdateSourceTrigger=PropertyChanged}"
+                   Foreground="LightBlue"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="32" />
+
+        <!-- Position -->
+        <TextBlock Grid.Column="1"
+                   Grid.Row="0"
+                   Text="Position"
+                   Foreground="LightYellow"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="13" />
+
+        <TextBlock Grid.Column="1"
+                   Grid.Row="1"
+                   Text="{Binding CurrentPosition, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PointToChessLocationConverter}}"
+                   Foreground="LightYellow"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="32" />
+
+        <!-- Lives remaining -->
+        <TextBlock Grid.Column="2"
+                   Grid.Row="0"
+                   Text="Lives remaining"
+                   Foreground="OrangeRed"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="14" />
+
+        <TextBlock Grid.Column="2"
+                   Grid.Row="1"
+                   Text="{Binding  NumberOfLivesRemaining, UpdateSourceTrigger=PropertyChanged}"
+                   Foreground="OrangeRed"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="32" />
+
+        <!-- High score -->
+        <TextBlock Grid.Column="3"
+                   Grid.Row="0"
+                   Text="High Score"
+                   Foreground="Silver"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="14" />
+
+        <TextBlock Grid.Column="3"
+                   Grid.Row="1"
+                   Text="{Binding  HighScore, UpdateSourceTrigger=PropertyChanged}"
+                   Foreground="Silver"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="32" />
+
+        <Button Content="Restart Game"
+                Grid.Column="4"
+                Grid.Row="1"
+                Margin="15, 20, 15, 20"
+                Command="{Binding RestartCommand}" />
+    </Grid>
+</UserControl>

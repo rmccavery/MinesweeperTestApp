@@ -1,0 +1,51 @@
+﻿<Window x:Class="GameTestApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:GameTestApp.Views"
+        xmlns:viewModels="clr-namespace:GameTestApp.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Minesweeper game test application"
+        Height="890"
+        Width="800"
+        Background="Black"
+        d:DataContext="{d:DesignInstance viewModels:GameViewModel}">
+
+    <Window.InputBindings>
+        <!-- Keyboard handling -->
+        <KeyBinding Gesture="Left" Command="{Binding MoveLeftCommand}" />
+        <KeyBinding Gesture="Right" Command="{Binding MoveRightCommand}" />
+        <KeyBinding Gesture="Up" Command="{Binding MoveUpCommand}" />
+        <KeyBinding Gesture="Down" Command="{Binding MoveDownCommand}" />
+    </Window.InputBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Score and position info -->
+        <views:ScoreStatusControl Grid.Row="0" />
+
+        <!-- Game display fixed size right now so viewbox to fit-->
+        <Viewbox Grid.Row="1"
+                 Stretch="Uniform"
+                 RenderOptions.BitmapScalingMode="HighQuality"
+                 VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch"
+                 Margin="0, 0, 0, 30">
+
+            <views:GameDisplayControl Focusable="True" />
+        </Viewbox>
+
+        <TextBlock Text="Use the arrow keys to navigate to the other side without being blown up too many times !!"
+                   Grid.Row="1"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   Foreground="DodgerBlue"
+                   FontSize="14" />
+    </Grid>
+</Window>
