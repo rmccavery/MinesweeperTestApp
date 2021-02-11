@@ -1,0 +1,15 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b3c3a67f_002Df05e_002D453c_002D8711_002D240ce8129b8a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestSetStateOnTileValidLocation" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C8A5B1E4-D8CF-4DCC-A5A4-90C9FB9F8836::.NETCoreApp,Version=v3.1::GameTestAppTests.GameBoardTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C8A5B1E4-D8CF-4DCC-A5A4-90C9FB9F8836::.NETCoreApp,Version=v3.1::GameTestAppTests.GameControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C8A5B1E4-D8CF-4DCC-A5A4-90C9FB9F8836::.NETCoreApp,Version=v3.1::GameTestAppTests.ConverterTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C8A5B1E4-D8CF-4DCC-A5A4-90C9FB9F8836::.NETCoreApp,Version=v3.1::GameTestAppTests.GameViewModelTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e0433ea0_002D2cfd_002D418d_002D9086_002Ddff7e76230d2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="PlayerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C8A5B1E4-D8CF-4DCC-A5A4-90C9FB9F8836::.NETCoreApp,Version=v3.1::GameTestAppTests.PlayerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C8A5B1E4-D8CF-4DCC-A5A4-90C9FB9F8836::.NETCoreApp,Version=v3.1::GameTestAppTests.GameBoardTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
